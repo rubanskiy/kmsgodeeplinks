@@ -54,7 +54,7 @@
           document.body.removeChild(iframe);
           if (Date.now() - start < 1500) {
             const packageName = "com.kms.kaltura.kmsapplication";
-            const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=utm_source=smart_banner&utm_content=${link}`;
+            const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=${link}`;
 
             window.location.href = playStoreUrl;
           }
