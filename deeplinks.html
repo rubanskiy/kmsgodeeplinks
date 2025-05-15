@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart App Redirect</title>
+</head>
+<body>
+  <p>Redirecting...</p>
+
+  <script>
+    (function () {
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const packageName = "com.example.app"; // 🔁 заміни на свій packageName
+      const deepLink = "yourapp://details/123"; // 🔁 кастомний диплінк
+      const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=utm_source=smart_banner&utm_content=details_123`;
+
+      if (isAndroid) {
+        const start = Date.now();
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = deepLink;
+        document.body.appendChild(iframe);
+
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          if (Date.now() - start < 1500) {
+            window.location.href = playStoreUrl;
+          }
+        }, 1000);
+      } else {
+        window.location.href = "https://yourdomain.com/fallback"; // 🔁 або App Clip / iOS fallback
+      }
+    })();
+  </script>
+</body>
+</html>
