@@ -31,36 +31,5 @@
 
   <button id="openAppBtn">Open the app</button>
 
-  <script>
-    document.getElementById('openAppBtn').addEventListener('click', function () {
-      const isAndroid = /Android/i.test(navigator.userAgent);
-
-      if (isAndroid) {
-        const start = Date.now();
-        const iframe = document.createElement('iframe');
-
-        const link = "https://21122.nvq2.mediaspace.kaltura.com/channel/test++v+channel+2/10634792";
-        const deepLink = `kmsapp://kmsgoapplication.page.link/?link=${link}`;
-
-        iframe.style.display = 'none';
-        iframe.src = deepLink;
-
-        document.body.appendChild(iframe);
-
-        setTimeout(() => {
-          document.body.removeChild(iframe);
-          if (Date.now() - start < 1500) {
-            const packageName = "com.kms.kaltura.kmsapplication";
-            const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=utm_source=smart_banner&utm_content=${link}`;
-
-            window.location.href = playStoreUrl;
-          }
-        }, 1000);
-      } else {
-        window.location.href = "https://google.com";
-      }
-    });
-  </script>
-
 </body>
 </html>
