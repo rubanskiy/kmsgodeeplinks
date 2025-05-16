@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kms go deeplinks</title>
-
-    <style>
+  <style>
     body {
       display: flex;
       justify-content: center;
@@ -27,44 +26,17 @@
       background-color: #0056b3;
     }
   </style>
-
 </head>
-
 <body>
 
   <button id="openAppBtn">Open the app</button>
 
   <script>
     document.getElementById('openAppBtn').addEventListener('click', function () {
-      const isAndroid = /Android/i.test(navigator.userAgent);
-
-      if (isAndroid) {
-        const start = Date.now();
-        const iframe = document.createElement('iframe');
-
-        const link = "https://21122.nvq2.mediaspace.kaltura.com/channel/test++v+channel+2/10634792";
-        const deepLink = `kmsapp://kmsgoapplication.page.link/?link=${link}`;
-
-        iframe.style.display = 'none';
-        iframe.src = deepLink;
-
-        document.body.appendChild(iframe);
-
-        setTimeout(() => {
-          document.body.removeChild(iframe);
-          if (Date.now() - start < 1500) {
-            const packageName = "com.kms.kaltura.kmsapplication";
-            const playStoreUrl = `https://play.google.com/store/apps/details?id=${packageName}&referrer=${link}`;
-
-            window.location.href = playStoreUrl;
-          }
-        }, 1000);
-      } else {
-        window.location.href = "https://google.com";
-      }
+      const oneLinkUrl = "https://kaltura.onelink.me/hjEd/77f7u7cl?pid=my_media_source&deep_link_value=https://21122.nvq2.mediaspace.kaltura.com/channel/test++v+channel+2/10634792";
+      window.location.href = oneLinkUrl;
     });
   </script>
 
 </body>
-
 </html>
