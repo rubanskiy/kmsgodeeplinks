@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kms go deeplinks</title>
+  <title>KMS Deeplinks</title>
   <style>
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
       font-family: sans-serif;
+      gap: 20px;
     }
     button {
       padding: 16px 32px;
@@ -29,13 +31,16 @@
 </head>
 <body>
 
-  <button id="openAppBtn">Open the app</button>
+  <button onclick="openLink('https://kaltura.onelink.me/hjEd?&deep_link_value=https://21122.nvq2.mediaspace.kaltura.com/channel/test++v+channel+2/10634792')">Open Channel</button>
+
+  <button onclick="openLink('https://kaltura.onelink.me/hjEd?&deep_link_value=https://21122.nvq2.mediaspace.kaltura.com/media/squirrel%20edited/0_xoy9ws6e/10634792')">Open Entry</button>
+
+  <button onclick="openLink('https://kaltura.onelink.me/hjEd?&deep_link_value=https://21122.nvq2.mediaspace.kaltura.com/playlist/dedicated/0_f8ojfi2g/0_v5axh5yi')">Open Playlist</button>
 
   <script>
-    document.getElementById('openAppBtn').addEventListener('click', function () {
-      const oneLinkUrl = "https://kaltura.onelink.me/hjEd?&deep_link_value=https://21122.nvq2.mediaspace.kaltura.com/channel/Public+Restricted+UT2105/12397542";
-      window.location.href = oneLinkUrl;
-    });
+    function openLink(url) {
+      window.location.href = url;
+    }
   </script>
 
 </body>
